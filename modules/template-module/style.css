@@ -1,0 +1,13 @@
+/* Template Module Styles */
+.table th,
+.table td {
+    text-align: center;
+}
+
+#mainTable {
+    margin-top: 20px;
+}
+
+.modal-header {
+    background: #f8f9fa;
+}
