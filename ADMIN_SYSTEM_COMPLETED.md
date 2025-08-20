@@ -41,7 +41,7 @@ admin/
 ├── 📄 accept_invitation.php         # Página para aceptar invitaciones
 ├── 📄 install_admin_tables.php      # Script de instalación de BD
 ├── 📄 email_config_example.php      # Configuración de email (ejemplo)
-├── 📄 README.md                     # Documentación completa
+├── 📄 docs/README.md                     # Documentación completa
 ├── 📁 modals/
 │   ├── 📄 invite_user_modal.php     # Modal de invitación
 │   └── 📄 edit_user_modal.php       # Modal de edición

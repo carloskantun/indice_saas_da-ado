@@ -6,8 +6,8 @@
 **Problema Original**: El sistema rechazaba invitaciones a usuarios ya registrados, impidiendo que trabajadores freelance, subcontratistas o empleados multi-empresa pudieran acceder a múltiples organizaciones.
 
 **Documentación Confirmada**: 
-- ✅ README.md: "Un mismo usuario puede tener múltiples roles en distintas empresas"
-- ✅ README_SAAS.md: "Multi-empresa: Gestión de múltiples empresas por usuario"
+- ✅ ../docs/README.md: "Un mismo usuario puede tener múltiples roles en distintas empresas"
+- ✅ ../docs/README.md: "Multi-empresa: Gestión de múltiples empresas por usuario"
 - ✅ Estructura flexible para "trabajadores con múltiples negocios"
 
 ## 🔧 Soluciones Implementadas
@@ -126,7 +126,7 @@ id | email | company_id | role | token | status | accepted_date
 | ✅ **Invitaciones Flexibles** | Funcional | Usuarios nuevos y existentes |
 | ✅ **UI Adaptativa** | Funcional | Interfaz según tipo de usuario |
 | ✅ **Validaciones** | Funcional | Sin duplicados, tokens seguros |
-| ✅ **Jerarquía Respetada** | Funcional | Permisos según README.md |
+| ✅ **Jerarquía Respetada** | Funcional | Permisos según ../docs/README.md |
 
 ## 🧪 Pruebas Sugeridas
 
@@ -157,4 +157,4 @@ id | email | company_id | role | token | status | accepted_date
 
 ---
 
-*El sistema está ahora preparado para casos de uso reales de trabajadores multi-empresa, freelancers y subcontratistas, cumpliendo con la visión original del README.md*
+*El sistema está ahora preparado para casos de uso reales de trabajadores multi-empresa, freelancers y subcontratistas, cumpliendo con la visión original del ../docs/README.md*
