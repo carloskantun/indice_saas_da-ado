@@ -1,7 +1,7 @@
 <?php
 /**
  * Sistema de validación de roles y permisos
- * Basado en la jerarquía definida en README.md
+ * Basado en la jerarquía definida en ../docs/README.md
  */
 
 /**
