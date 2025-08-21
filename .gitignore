@@ -6,3 +6,7 @@
 
 # Ignore debug scripts
 debug_*
+
+# Ignore local email configuration variants
+admin/email_config_*.php
+admin/email_config.local.php

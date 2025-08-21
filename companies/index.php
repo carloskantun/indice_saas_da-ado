@@ -168,7 +168,7 @@ if (!isset($lang) || !is_array($lang)) {
                             <li><a class="dropdown-item" href="../admin/usuarios.php<?php echo $current_company_id ? '?company_id='.$current_company_id : ''; ?>">
                                 <i class="fas fa-user-shield me-2"></i>Gestión de Usuarios
                             </a></li>
-                            <li><a class="dropdown-item" href="../admin/permisos.php<?php echo $current_company_id ? '?company_id='.$current_company_id : ''; ?>">
+                            <li><a class="dropdown-item" href="../admin/permissions_management.php<?php echo $current_company_id ? '?company_id='.$current_company_id : ''; ?>">
                                 <i class="fas fa-key me-2"></i>Gestión de Permisos
                             </a></li>
                             <li><a class="dropdown-item" href="../admin/roles.php<?php echo $current_company_id ? '?company_id='.$current_company_id : ''; ?>">

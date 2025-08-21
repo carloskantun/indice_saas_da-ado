@@ -4,16 +4,29 @@
  * Muestra notificaciones en tiempo real en la barra de navegación
  */
 
-require_once __DIR__ . '/../admin/notifications.php';
+require_once __DIR__ . '/../includes/notifications.php';
 
 // Obtener notificaciones del usuario actual
 $navbar_notifications = [];
 $notification_count = 0;
 
-if (isset($_SESSION['user_id'])) {
-    $navbar_data = getNavbarNotifications($_SESSION['user_id']);
-    $navbar_notifications = $navbar_data['notifications'];
-    $notification_count = $navbar_data['count'];
+if (isset($_SESSION['user_id']) && isset($_SESSION['company_id'])) {
+    $company_id = $_SESSION['company_id'];
+    $user_id = $_SESSION['user_id'];
+    $navbar_notifications = getNotifications($company_id, $user_id, 5);
+
+    // Procesar datos adicionales desde el campo JSON
+    $navbar_notifications = array_map(function($n) {
+        $data = json_decode($n['data'] ?? '{}', true) ?: [];
+        $n['color'] = $data['color'] ?? 'primary';
+        $n['icon'] = $data['icon'] ?? 'fas fa-info-circle';
+        $n['action_url'] = $data['action_url'] ?? '';
+        return $n;
+    }, $navbar_notifications);
+
+    $notification_count = count(array_filter($navbar_notifications, function($n) {
+        return ($n['status'] ?? 'unread') !== 'read';
+    }));
 }
 ?>
 
@@ -69,7 +82,7 @@ if (isset($_SESSION['user_id'])) {
             <?php endforeach; ?>
             
             <div class="dropdown-item text-center">
-                <a href="/admin/notifications.php" class="btn btn-sm btn-outline-primary">
+                <a href="/notifications/index.php" class="btn btn-sm btn-outline-primary">
                     Ver todas las notificaciones
                 </a>
             </div>
@@ -131,7 +144,7 @@ function handleNotificationClick(notificationId, actionUrl) {
 // Función para actualizar notificaciones automáticamente
 function refreshNotifications() {
     // TODO: Implementar actualización AJAX de notificaciones
-    // fetch('/admin/notifications.php?action=get_notifications')
+    // fetch('/notifications/index.php?action=get_notifications')
     //     .then(response => response.json())
     //     .then(data => updateNotificationDisplay(data));
 }

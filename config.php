@@ -185,3 +185,8 @@ function getDB() {
 if (file_exists(__DIR__ . '/admin/email_config.php')) {
     require_once __DIR__ . '/admin/email_config.php';
 }
+
+// Cargar configuración local si está disponible
+if (file_exists(__DIR__ . '/admin/email_config_local.php')) {
+    require_once __DIR__ . '/admin/email_config_local.php';
+}

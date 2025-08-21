@@ -43,7 +43,7 @@ Sistema de administración mejorado para usuarios con rol `superadmin`, permitie
 - **Estadísticas por rol**: Total de usuarios y usuarios activos
 - **Descripción de permisos**: Explicación clara de cada rol
 
-### 5. Gestión de Permisos (`/admin/permisos.php`)
+### 5. Gestión de Permisos (`/admin/permissions_management.php`)
 - **Vista previa de funcionalidad futura**
 - **Matriz de permisos por módulo**:
   - Ver, Crear, Editar, Eliminar, Admin
@@ -99,7 +99,7 @@ Sistema de administración mejorado para usuarios con rol `superadmin`, permitie
 ├── index.php              # Dashboard principal
 ├── usuarios.php           # Gestión de usuarios
 ├── roles.php              # Información de roles
-├── permisos.php           # Gestión de permisos (Fase 2)
+├── permissions_management.php # Gestión de permisos
 ├── controller.php         # Backend API
 ├── modals/
 │   ├── invite_user_modal.php    # Modal para invitar usuarios

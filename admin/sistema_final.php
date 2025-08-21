@@ -107,7 +107,7 @@ require_once '../config.php';
                                                 </a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="../admin/permisos.php?company_id=1" class="btn btn-outline-success btn-sm">
+                                                <a href="../admin/permissions_management.php?company_id=1" class="btn btn-outline-success btn-sm">
                                                     <i class="fas fa-key me-1"></i>Gestión Permisos
                                                 </a>
                                             </li>
