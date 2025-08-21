@@ -1,35 +1,41 @@
 <?php
-require_once '../../config.php';
-header('Content-Type: application/json');
+/**
+ * Controlador API del módulo Template Module
+ */
 
-// Permission check example
-function hasPermission($action) {
-    // Replace with real permission logic
-    return true;
+require_once '../../config.php';
+
+if (!checkAuth()) {
+    http_response_code(401);
+    echo json_encode(['error' => 'No autorizado']);
+    exit();
 }
 
-$action = $_REQUEST['action'] ?? '';
+function hasPermission($permission) {
+    if (!checkAuth()) {
+        return false;
+    }
+
+    $role = $_SESSION['current_role'] ?? 'user';
+    if (in_array($role, ['root', 'superadmin'])) {
+        return true;
+    }
+
+    $permission_map = [
+        'admin' => ['template-module.view', 'template-module.edit'],
+        'user'  => ['template-module.view']
+    ];
+
+    return in_array($permission, $permission_map[$role] ?? []);
+}
+
+$db = getDB();
+$action = $_POST['action'] ?? $_GET['action'] ?? '';
 
 switch ($action) {
-    case 'create':
-        if (!hasPermission('create')) exit(json_encode(['error' => 'No permission']));
-        // ...create logic...
-        exit(json_encode(['success' => true]));
-    case 'edit':
-        if (!hasPermission('edit')) exit(json_encode(['error' => 'No permission']));
-        // ...edit logic...
-        exit(json_encode(['success' => true]));
-    case 'delete':
-        if (!hasPermission('delete')) exit(json_encode(['error' => 'No permission']));
-        // ...delete logic...
-        exit(json_encode(['success' => true]));
-    case 'action':
-        if (!hasPermission('action')) exit(json_encode(['error' => 'No permission']));
-        // ...contextual action logic...
-        exit(json_encode(['success' => true]));
-    case 'list':
-        // ...list logic...
-        exit(json_encode(['data' => []]));
     default:
-        exit(json_encode(['error' => 'Unknown action']));
+        http_response_code(400);
+        echo json_encode(['error' => 'Acción no válida']);
+        break;
 }
+?>
