@@ -14,3 +14,13 @@ admin/email_config.local.php
 # Ignore environment and editor files
 .env
 .vscode/
+.ftpquota
+
+# Ignore dependencies
+vendor/
+node_modules/
+
+# Ignore backup and archive files
+*backup*
+*old*
+*.zip
