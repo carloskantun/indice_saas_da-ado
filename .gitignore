@@ -1,6 +1,7 @@
 # Ignore temporary files
 *.tmp
 *.log
+error_log
 *~
 *.swp
 
@@ -14,6 +15,7 @@ admin/email_config.local.php
 # Ignore environment and editor files
 .env
 .vscode/
+**/.vscode/
 .ftpquota
 
 # Ignore dependencies
