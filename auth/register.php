@@ -4,6 +4,8 @@ require_once '../config.php';
 $error = '';
 $success = '';
 
+if ($_POST && !verify_csrf()) { http_response_code(403); exit; }
+
 if ($_POST) {
     $name = trim($_POST['name'] ?? '');
     $email = trim($_POST['email'] ?? '');

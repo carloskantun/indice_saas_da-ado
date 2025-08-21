@@ -10,6 +10,8 @@ if (checkAuth()) {
 $error = '';
 $success = '';
 
+if ($_POST && !verify_csrf()) { http_response_code(403); exit; }
+
 if ($_POST) {
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
