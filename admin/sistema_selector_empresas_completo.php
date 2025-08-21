@@ -170,9 +170,6 @@ require_once '../config.php';
                                     <a href="../companies/" class="btn btn-outline-primary">
                                         <i class="fas fa-building me-2"></i>Lista de Empresas
                                     </a>
-                                    <a href="../admin/test_selector_empresas.php" class="btn btn-outline-info">
-                                        <i class="fas fa-exchange-alt me-2"></i>Test Selector
-                                    </a>
                                 </div>
                             </div>
                             
@@ -194,9 +191,6 @@ require_once '../config.php';
                                 <div class="d-grid gap-2">
                                     <a href="../admin/direct_links.php" class="btn btn-outline-warning">
                                         <i class="fas fa-link me-2"></i>Enlaces Directos
-                                    </a>
-                                    <a href="../admin/test_enlaces_corregidos.php" class="btn btn-outline-secondary">
-                                        <i class="fas fa-vial me-2"></i>Test Enlaces
                                     </a>
                                 </div>
                             </div>
