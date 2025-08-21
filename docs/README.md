@@ -2,6 +2,22 @@
 
 Esta guía unifica la documentación previamente distribuida en los archivos `README*.md`.
 
+## Índice de guías
+
+- [Auditoría del sistema](AUDITORIA_SISTEMA.md)
+- [Estándar de nombres de base de datos](DATABASE_NAMING_STANDARD.md)
+- [Guía de migraciones de base de datos](README_DATABASE.md)
+- [Configuración de email](email_config.md)
+- [Roles y permisos](roles_permisos.md)
+- [Sistema de gestión de usuarios admin](ADMIN_SYSTEM_COMPLETED.md)
+- [Flujo de negocio SaaS](BUSINESS_SYSTEM_COMPLETE.md)
+- [Corrección del sistema de invitaciones](CORRECTION_SUMMARY.md)
+- [Sistema de invitaciones](INVITATION_SYSTEM_README.md)
+- [Análisis del módulo de gastos](GASTOS_ANALYSIS.md)
+- [Integración simple con panel root](INTEGRACION_SIMPLE.md)
+- [Pase de lista interactivo](PASE_DE_LISTA_README.md)
+- [Reorganización de botones y columnas](REORGANIZACION_BOTONES_README.md)
+
 ## Guía General
 
 Sistema modular y escalable en PHP + MySQL que permite a múltiples empresas gestionar sus negocios, unidades, personal y servicios desde un solo ecosistema.
