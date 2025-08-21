@@ -10,3 +10,7 @@ debug_*
 # Ignore local email configuration variants
 admin/email_config_*.php
 admin/email_config.local.php
+
+# Ignore environment and editor files
+.env
+.vscode/
