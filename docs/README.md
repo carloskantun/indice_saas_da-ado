@@ -46,6 +46,9 @@ Sistema modular y escalable en PHP + MySQL que permite a múltiples empresas ges
    # Ir a: admin/complete_role_installation.php
    ```
 
+3. **Configurar correo**:
+   Revisar [email_config.md](email_config.md) para personalizar las constantes de envío.
+
 ### Credenciales Iniciales
 - **Root**: `root@indiceapp.com` / `root123`
 - **Admin Ejemplo**: `admin@indiceapp.com` / `admin123`
