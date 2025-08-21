@@ -9,7 +9,8 @@
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="changePlanForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <input type="hidden" id="change_plan_company_id" name="company_id">
                 <div class="modal-body">
                     <div class="alert alert-info">

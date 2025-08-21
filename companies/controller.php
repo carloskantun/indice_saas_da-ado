@@ -1,6 +1,13 @@
 <?php
 require_once '../config.php';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !verify_csrf()) {
+    http_response_code(403);
+    echo json_encode(['error' => 'Token CSRF inválido']);
+    exit();
+}
+
+
 // Verificar autenticación
 if (!checkAuth()) {
     if (isset($_POST['action'])) {
@@ -97,8 +104,7 @@ try {
             
             // API JSON original para otras acciones
             header('Content-Type: application/json');
-                'company_id' => $company_id
-            ]);
+            echo json_encode(['error' => 'Acción no válida']);
             break;
             
         case 'PUT':

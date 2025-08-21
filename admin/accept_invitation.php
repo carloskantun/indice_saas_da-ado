@@ -195,7 +195,8 @@ if ($token) {
                     </div>
 
                     <!-- Formulario -->
-                    <form id="acceptInvitationForm">
+                    <form>
+    <?php echo csrf_input(); ?>
                         <input type="hidden" name="token" value="<?php echo htmlspecialchars($token); ?>">
                         
                         <?php if (!$existing_user): ?>

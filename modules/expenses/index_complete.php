@@ -290,7 +290,8 @@ $units = $stmt->fetchAll();
     <!-- Filtros -->
     <div class="card filters-section mb-4">
         <div class="card-body">
-            <form method="GET" id="filterForm" class="row g-3">
+            <form>
+    <?php echo csrf_input(); ?>
                 <div class="col-md-3">
                     <label class="form-label">Proveedor</label>
                     <select name="proveedor" class="form-select select2">

@@ -129,7 +129,8 @@ try {
     // Test rápido de creación
     echo "<div style='background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 5px;'>";
     echo "<h4>🧪 Crear Proveedor de Prueba:</h4>";
-    echo '<form method="POST" style="margin-top: 10px;">';
+    echo '<form>
+    <?php echo csrf_input(); ?>';
     echo '<div style="margin-bottom: 10px;">';
     echo '<input type="text" name="test_name" placeholder="Nombre del proveedor" required style="margin-right: 10px; padding: 8px; width: 200px;">';
     echo '<input type="email" name="test_email" placeholder="Email (opcional)" style="margin-right: 10px; padding: 8px; width: 200px;">';

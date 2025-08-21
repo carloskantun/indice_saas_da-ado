@@ -94,7 +94,8 @@ header('Content-Type: text/html; charset=UTF-8');
                                         echo "<div class='alert alert-danger mt-3'>❌ Error: " . htmlspecialchars($e->getMessage()) . "</div>";
                                     }
                                 } else {
-                                    echo "<form method='POST' class='mt-3'>";
+                                    echo "<form>
+    <?php echo csrf_input(); ?>";
                                     echo "<button type='submit' name='create_user_companies' class='btn btn-warning'>";
                                     echo "<i class='fas fa-plus me-2'></i>Crear tabla user_companies";
                                     echo "</button>";
@@ -150,7 +151,8 @@ header('Content-Type: text/html; charset=UTF-8');
                                         echo "<div class='alert alert-danger mt-3'>❌ Error: " . htmlspecialchars($e->getMessage()) . "</div>";
                                     }
                                 } else {
-                                    echo "<form method='POST' class='mt-3'>";
+                                    echo "<form>
+    <?php echo csrf_input(); ?>";
                                     echo "<button type='submit' name='create_user_invitations' class='btn btn-danger'>";
                                     echo "<i class='fas fa-plus me-2'></i>Crear tabla user_invitations";
                                     echo "</button>";

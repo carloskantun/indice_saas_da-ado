@@ -5,6 +5,13 @@
  */
 
 require_once '../config.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !verify_csrf()) {
+    http_response_code(403);
+    echo json_encode(['error' => 'Token CSRF inválido']);
+    exit();
+}
+
 require_once 'permissions_manager.php';
 require_once 'db_connection.php';
 // email_config.php ya está incluido desde config.php

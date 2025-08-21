@@ -165,7 +165,8 @@ try {
             </div>
         <?php endif; ?>
 
-        <form method="POST" class="row">
+        <form>
+    <?php echo csrf_input(); ?>
             <!-- Información Básica -->
             <div class="col-lg-6 mb-4">
                 <div class="card border-0 shadow-sm h-100">

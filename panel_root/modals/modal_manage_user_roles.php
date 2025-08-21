@@ -80,7 +80,8 @@
                         </h6>
                     </div>
                     <div class="card-body" id="newCompanyAssignmentSection" style="display: none;">
-                        <form id="newCompanyRoleForm">
+                        <form>
+    <?php echo csrf_input(); ?>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">

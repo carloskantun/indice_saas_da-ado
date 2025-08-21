@@ -5,6 +5,13 @@
 
 require_once '../../config.php';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !verify_csrf()) {
+    http_response_code(403);
+    echo json_encode(['error' => 'Token CSRF inválido']);
+    exit();
+}
+
+
 if (!checkAuth()) {
     http_response_code(401);
     echo json_encode(['error' => 'No autorizado']);

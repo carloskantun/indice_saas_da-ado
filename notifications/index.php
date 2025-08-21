@@ -151,7 +151,8 @@ $page_title = "Notificaciones";
                                         </small>
                                     </div>
                                     <div class="ms-3">
-                                        <form method="POST" class="d-inline">
+                                        <form>
+    <?php echo csrf_input(); ?>
                                             <input type="hidden" name="notification_id" value="<?php echo $invitation['id']; ?>">
                                             <button type="submit" name="accept_invitation" class="btn btn-success btn-sm">
                                                 <i class="fas fa-check"></i> Aceptar Invitación
@@ -210,7 +211,8 @@ $page_title = "Notificaciones";
                                         </div>
                                         <div class="ms-3">
                                             <?php if ($isUnread): ?>
-                                                <form method="POST" class="d-inline">
+                                                <form>
+    <?php echo csrf_input(); ?>
                                                     <input type="hidden" name="notification_id" value="<?php echo $notification['id']; ?>">
                                                     <button type="submit" name="mark_read" class="btn btn-outline-secondary btn-sm">
                                                         <i class="fas fa-check"></i> Marcar como leída

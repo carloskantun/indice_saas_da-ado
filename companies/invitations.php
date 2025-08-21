@@ -197,7 +197,8 @@ $page_title = "Gestionar Invitaciones";
                     <h5 class="modal-title">Nueva Invitación</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <form id="inviteForm">
+                <form>
+    <?php echo csrf_input(); ?>
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email del Usuario *</label>
