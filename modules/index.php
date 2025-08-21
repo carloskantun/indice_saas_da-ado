@@ -17,8 +17,8 @@ $user_id = $_SESSION['user_id'];
 // Verificar que el usuario tiene acceso a este negocio
 try {
     $stmt = $db->prepare("
-        SELECT b.name as business_name, u.name as unit_name, c.name as company_name, 
-               c.id as company_id, u.id as unit_id, uc.role 
+        SELECT b.name as business_name, u.name as unit_name, c.name as company_name,
+               c.id as company_id, u.id as unit_id, uc.role, c.plan_id
         FROM businesses b 
         INNER JOIN units u ON b.unit_id = u.id
         INNER JOIN companies c ON u.company_id = c.id
@@ -37,6 +37,7 @@ try {
     $_SESSION['unit_id'] = $businessData['unit_id'];
     $_SESSION['company_id'] = $businessData['company_id'];
     $_SESSION['current_role'] = $businessData['role'];
+    $_SESSION['plan_id'] = $businessData['plan_id'];
     $_SESSION['business_name'] = $businessData['business_name'];
     $_SESSION['unit_name'] = $businessData['unit_name'];
     $_SESSION['company_name'] = $businessData['company_name'];
@@ -51,7 +52,7 @@ try {
     $plan_id = $businessData['plan_id'] ?? null;
     if ($plan_id) {
         $stmt = $db->prepare("
-            SELECT m.id, m.name, m.slug, m.description, m.url, m.icon, m.color, m.status
+            SELECT m.id, m.name, m.slug, m.description, m.url, m.icon, m.color, m.allowed_roles, m.status
             FROM modules m
             INNER JOIN plan_modules pm ON m.id = pm.module_id
             WHERE m.status = 'active' AND pm.plan_id = ?
@@ -60,7 +61,7 @@ try {
         $stmt->execute([$plan_id]);
     } else {
         // Fallback: mostrar todos los módulos activos
-        $stmt = $db->prepare("SELECT id, name, slug, description, url, icon, color, status FROM modules WHERE status = 'active' ORDER BY name ASC");
+        $stmt = $db->prepare("SELECT id, name, slug, description, url, icon, color, allowed_roles, status FROM modules WHERE status = 'active' ORDER BY name ASC");
         $stmt->execute();
     }
     $modulesList = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -68,8 +69,10 @@ try {
     // Convertir a formato compatible con el template actual
     $availableModules = [];
     foreach ($modulesList as $module) {
-        // Verificar si el usuario tiene permisos para este módulo
-        if (hasModuleAccess($module['slug'], $businessData['role'])) {
+        $allowedRoles = array_map('trim', explode(',', $module['allowed_roles'] ?? 'admin'));
+        $userRole = $businessData['role'];
+        $superRoles = ['root', 'superadmin', 'superadministrador'];
+        if (in_array($userRole, $superRoles) || in_array($userRole, $allowedRoles)) {
             // Limpiar URL para evitar duplicación de /modules/
             $cleanUrl = $module['url'];
             if (strpos($cleanUrl, '/modules/') === 0) {
@@ -108,28 +111,6 @@ try {
     ];
 }
 
-/**
- * Verificar si el usuario tiene acceso a un módulo
- */
-function hasModuleAccess($moduleSlug, $userRole) {
-    // Superadmin y root tienen acceso a todo
-    if (in_array($userRole, ['root', 'superadmin', 'superadministrador'])) {
-        return true;
-    }
-    
-    // Configuración de acceso por módulo y rol
-    $moduleAccess = [
-        'expenses' => ['admin', 'moderator', 'user'],
-        'human-resources' => ['admin', 'moderator'], // Admin y moderator tienen acceso completo
-        'mantenimiento' => ['admin', 'moderator', 'user'],
-        'inventario' => ['admin', 'moderator', 'user'],
-        'ventas' => ['admin', 'moderator', 'user'],
-        'servicio_cliente' => ['admin', 'moderator', 'user']
-    ];
-    
-    $allowedRoles = $moduleAccess[$moduleSlug] ?? ['admin'];
-    return in_array($userRole, $allowedRoles);
-}
 
 /**
  * Convertir color hex a clase Bootstrap
@@ -151,7 +132,7 @@ function getBootstrapColor($hexColor) {
 // Módulos hardcodeados como fallback (mantener por compatibilidad)
 $fallbackModules = [
     [
-        'id' => 'gastos',
+        'id' => 'expenses',
         'name' => $lang['gastos'] ?? 'Gastos',
         'description' => 'Gestión de gastos e ingresos del negocio',
         'icon' => 'fas fa-money-bill-wave',
