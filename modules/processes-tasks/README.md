@@ -754,3 +754,7 @@ INSERT INTO workflow_templates (name, description, category, department_id, temp
 ---
 
 **🚀 ¡Listo para implementar! El módulo sigue el patrón establecido y está preparado para integrarse perfectamente con el ecosistema SaaS existente.**
+
+---
+
+Para más información sobre roles y permisos, consulta [docs/roles_permisos.md](../../docs/roles_permisos.md).

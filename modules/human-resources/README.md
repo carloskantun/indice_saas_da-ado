@@ -269,3 +269,7 @@ El módulo sigue el **patrón establecido por el módulo de gastos**:
 **Desarrollado por**: GitHub Copilot + Equipo Indice SaaS  
 **Fecha**: 7 de agosto de 2025  
 **Versión**: 1.0.0 (Base funcional)
+
+---
+
+Para más información sobre roles y permisos, consulta [docs/roles_permisos.md](../../docs/roles_permisos.md).

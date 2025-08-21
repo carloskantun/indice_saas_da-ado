@@ -1,5 +1,31 @@
 <?php
-// Inventory module main view
+/**
+ * Módulo Inventory - vista principal
+ */
+
 require_once '../../config.php';
-// ...module logic...
+
+if (!checkAuth()) {
+    redirect('auth/');
+}
+
+function hasPermission($permission) {
+    if (!checkAuth()) {
+        return false;
+    }
+
+    $role = $_SESSION['current_role'] ?? 'user';
+    if (in_array($role, ['root', 'superadmin'])) {
+        return true;
+    }
+
+    $permission_map = [
+        'admin' => ['inventory.view', 'inventory.edit'],
+        'user'  => ['inventory.view']
+    ];
+
+    return in_array($permission, $permission_map[$role] ?? []);
+}
+
+// Contenido del módulo...
 ?>

@@ -288,3 +288,7 @@ mysqldump -u user -p database_name providers expenses expense_payments credit_no
 **Compatible con**: Sistema SaaS Indice v2.0+
 
 Para soporte técnico o nuevas funcionalidades, consultar la documentación del sistema SaaS principal.
+
+---
+
+Para más información sobre roles y permisos, consulta [docs/roles_permisos.md](../../docs/roles_permisos.md).
