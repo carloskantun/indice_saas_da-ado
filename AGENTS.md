@@ -6,6 +6,7 @@
 - Cada entidad (empresa, unidad, negocio) puede tener múltiples usuarios con distintos roles.
 - Los permisos deben consultarse antes de mostrar acciones o datos.
 - Tabla de roles y permisos: [docs/roles_permisos.md](docs/roles_permisos.md)
+- Los *slugs* de los módulos deben estar en **inglés** (p. ej. `expenses`, `maintenance`, `customer-service`).
 
 ## ✅ MODULOS
 

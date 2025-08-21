@@ -44,27 +44,6 @@ try {
     exit;
 }
 
-// Función hasModuleAccess (copia del index.php)
-function hasModuleAccess($moduleSlug, $userRole) {
-    // Superadmin y root tienen acceso a todo
-    if (in_array($userRole, ['root', 'superadmin', 'superadministrador'])) {
-        return true;
-    }
-    
-    // Configuración de acceso por módulo y rol
-    $moduleAccess = [
-        'expenses' => ['admin', 'moderator', 'user'],
-        'human-resources' => ['admin', 'moderator'], // Admin y moderator tienen acceso completo
-        'mantenimiento' => ['admin', 'moderator', 'user'],
-        'inventario' => ['admin', 'moderator', 'user'],
-        'ventas' => ['admin', 'moderator', 'user'],
-        'servicio_cliente' => ['admin', 'moderator', 'user']
-    ];
-    
-    $allowedRoles = $moduleAccess[$moduleSlug] ?? ['admin'];
-    return in_array($userRole, $allowedRoles);
-}
-
 // Función getBootstrapColor (copia del index.php)
 function getBootstrapColor($hexColor) {
     $colorMap = [
@@ -86,10 +65,10 @@ echo "-------------------------------\n";
 
 try {
     $stmt = $db->prepare("
-        SELECT id, name, slug, description, url, icon, color, status
-        FROM modules 
-        WHERE status = 'active' 
-        AND slug IN ('expenses', 'human-resources', 'mantenimiento', 'inventario', 'ventas', 'servicio_cliente')
+        SELECT id, name, slug, description, url, icon, color, allowed_roles, status
+        FROM modules
+        WHERE status = 'active'
+        AND slug IN ('expenses', 'human-resources', 'maintenance', 'inventory', 'sales', 'customer-service')
         ORDER BY name ASC
     ");
     $stmt->execute();
@@ -106,7 +85,9 @@ try {
         echo "   - Estado: " . $module['status'] . "\n";
         
         // Verificar acceso
-        $hasAccess = hasModuleAccess($module['slug'], $businessData['role']);
+        $allowedRoles = array_map('trim', explode(',', $module['allowed_roles'] ?? 'admin'));
+        $superRoles = ['root', 'superadmin', 'superadministrador'];
+        $hasAccess = in_array($businessData['role'], $superRoles) || in_array($businessData['role'], $allowedRoles);
         echo "   - ¿Tienes acceso?: " . ($hasAccess ? "✅ SÍ" : "❌ NO") . "\n";
         
         if ($module['slug'] === 'human-resources') {
@@ -121,7 +102,9 @@ try {
     
     $availableModules = [];
     foreach ($modulesList as $module) {
-        $hasAccess = hasModuleAccess($module['slug'], $businessData['role']);
+        $allowedRoles = array_map('trim', explode(',', $module['allowed_roles'] ?? 'admin'));
+        $superRoles = ['root', 'superadmin', 'superadministrador'];
+        $hasAccess = in_array($businessData['role'], $superRoles) || in_array($businessData['role'], $allowedRoles);
         
         if ($hasAccess) {
             // Limpiar URL para evitar duplicación de /modules/
