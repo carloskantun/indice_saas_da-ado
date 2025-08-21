@@ -7,6 +7,13 @@ Este proyecto utiliza un sistema sencillo de migraciones para mantener el esquem
 Los scripts se encuentran en `database/migrations` y están numerados en el orden en que deben ejecutarse.
 Los archivos `.sql` son aplicados automáticamente; los scripts `.php` requieren ejecución manual.
 
+## Crear nuevas migraciones
+
+1. Agrega el script en `database/migrations/` usando un prefijo numérico incremental
+   (por ejemplo `015_create_attendance_table.sql`).
+2. Utiliza la extensión `.sql` para migraciones automáticas o `.php` para las que
+   necesiten lógica personalizada.
+
 ## Ejecución de migraciones
 
 1. Configura la conexión a base de datos en `config.php`.
