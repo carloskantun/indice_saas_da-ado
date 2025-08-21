@@ -221,7 +221,8 @@ try {
                     <h5 class="modal-title"><?php echo $lang['new_company']; ?></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <form id="createCompanyForm">
+                <form>
+    <?php echo csrf_input(); ?>
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="company_name" class="form-label"><?php echo $lang['company_name']; ?> *</label>

@@ -9,7 +9,8 @@
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="editUserForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <input type="hidden" id="editUserId" name="user_id">
                 <div class="modal-body">
                     <div class="row">

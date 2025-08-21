@@ -9,7 +9,8 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <form id="inviteUserForm">
+                <form>
+    <?php echo csrf_input(); ?>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">

@@ -1,6 +1,7 @@
 <div class="modal fade" id="completeModal" tabindex="-1" aria-labelledby="completeModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <form class="modal-content" id="completeForm">
+    <form>
+    <?php echo csrf_input(); ?>
       <div class="modal-header">
         <h5 class="modal-title" id="completeModalLabel"><?php echo $lang['complete_service'] ?? 'Complete Service'; ?></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

@@ -15,7 +15,8 @@
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <form id="employeeForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <div class="modal-body">
                     <!-- Tabs Navigation -->
                     <ul class="nav nav-tabs mb-4" id="employeeTabs" role="tablist">
@@ -557,7 +558,8 @@
                     </ul>
                     <hr>
                     <h6 class="mb-3">Crear nuevo puesto</h6>
-                    <form id="formNewPosition">
+                    <form>
+    <?php echo csrf_input(); ?>
                         <div class="mb-3">
                             <label for="positionName" class="form-label">Nombre del Puesto</label>
                             <input type="text" class="form-control" id="positionName" name="positionName" placeholder="Ejemplo: Analista de Datos" required>

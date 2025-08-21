@@ -54,7 +54,8 @@ header('Content-Type: text/html; charset=UTF-8');
                             <p class="mb-0"><strong>Se recomienda realizar un backup antes de continuar.</strong></p>
                         </div>
                         
-                        <form method="POST">
+                        <form>
+    <?php echo csrf_input(); ?>
                             <div class="form-check mb-3">
                                 <input class="form-check-input" type="checkbox" id="backup_confirm" required>
                                 <label class="form-check-label" for="backup_confirm">

@@ -377,7 +377,8 @@ $positions = $stmt->fetchAll();
         </div>
         <div class="collapse show" id="filtrosCollapse">
             <div class="card-body">
-                <form method="GET" class="row g-3">
+                <form>
+    <?php echo csrf_input(); ?>
                     <div class="col-md-3">
                         <label class="form-label">Departamento</label>
                         <select name="department_id" class="form-select">

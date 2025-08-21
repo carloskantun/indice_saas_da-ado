@@ -215,7 +215,8 @@ try {
                     <h5 class="modal-title"><?php echo $lang['new_unit']; ?></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <form id="createUnitForm">
+                <form>
+    <?php echo csrf_input(); ?>
                     <input type="hidden" name="company_id" value="<?php echo $company_id; ?>">
                     <div class="modal-body">
                         <div class="mb-3">

@@ -133,7 +133,8 @@ if ($_POST) {
                             </div>
                         <?php endif; ?>
                         
-                        <form method="POST" action="">
+                        <form>
+    <?php echo csrf_input(); ?>
                             <!-- Selector de tipo de cuenta -->
                             <div class="mb-4">
                                 <label class="form-label">Tipo de Cuenta *</label>

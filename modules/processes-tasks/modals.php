@@ -9,7 +9,8 @@
 <div class="modal fade" id="newProcessModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="newProcessForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <div class="modal-header">
                     <h5 class="modal-title">
                         <i class="fas fa-plus text-primary me-2"></i>
@@ -82,7 +83,8 @@
 <div class="modal fade" id="editProcessModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="editProcessForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <input type="hidden" name="process_id" id="editProcessId">
                 <div class="modal-header">
                     <h5 class="modal-title">
@@ -154,7 +156,8 @@
 <div class="modal fade" id="newTaskModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="newTaskForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <div class="modal-header">
                     <h5 class="modal-title">
                         <i class="fas fa-plus text-success me-2"></i>
@@ -233,7 +236,8 @@
 <div class="modal fade" id="editTaskModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="editTaskForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <input type="hidden" name="task_id" id="editTaskId">
                 <div class="modal-header">
                     <h5 class="modal-title">
@@ -311,7 +315,8 @@
 <div class="modal fade" id="completeTaskModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="completeTaskForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <input type="hidden" name="task_id" id="completeTaskId">
                 <div class="modal-header">
                     <h5 class="modal-title">
@@ -354,7 +359,8 @@
 <div class="modal fade" id="reassignTaskModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="reassignTaskForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <input type="hidden" name="task_id" id="reassignTaskId">
                 <div class="modal-header">
                     <h5 class="modal-title">
@@ -398,7 +404,8 @@
 <div class="modal fade" id="bulkAssignModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="bulkAssignForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <div class="modal-header">
                     <h5 class="modal-title">
                         <i class="fas fa-users text-primary me-2"></i>
@@ -516,7 +523,8 @@
 <div class="modal fade" id="updateProgressModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="updateProgressForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <input type="hidden" name="task_id" id="updateProgressTaskId">
                 <div class="modal-header">
                     <h5 class="modal-title">

@@ -183,7 +183,8 @@ function testEmailConfiguration($test_email) {
                                 </h5>
                             </div>
                             <div class="card-body">
-                                <form method="POST">
+                                <form>
+    <?php echo csrf_input(); ?>
                                     <input type="hidden" name="action" value="save_config">
                                     
                                     <div class="row mb-3">
@@ -282,7 +283,8 @@ function testEmailConfiguration($test_email) {
                                 </h5>
                             </div>
                             <div class="card-body">
-                                <form method="POST">
+                                <form>
+    <?php echo csrf_input(); ?>
                                     <input type="hidden" name="action" value="test_email">
                                     <div class="mb-3">
                                         <label class="form-label">Email de Prueba</label>

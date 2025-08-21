@@ -119,7 +119,8 @@ if ($_POST) {
                             </div>
                         <?php endif; ?>
                         
-                        <form method="POST" action="">
+                        <form>
+    <?php echo csrf_input(); ?>
                             <div class="mb-3">
                                 <label for="email" class="form-label">
                                     <i class="fas fa-envelope me-1"></i><?php echo $lang['email']; ?>

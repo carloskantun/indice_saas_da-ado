@@ -42,7 +42,8 @@ if (!$company_id) {
                 <h5 class="modal-title" id="expenseModalLabel">Nuevo Gasto</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="expenseForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <div class="modal-body">
                     <input type="hidden" id="expense_id_hidden" name="expense_id">
                     
@@ -181,7 +182,8 @@ if (!$company_id) {
                 <h5 class="modal-title" id="editExpenseModalLabel">Editar Gasto</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="editExpenseForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <div class="modal-body">
                     <input type="hidden" id="edit_expense_id" name="expense_id">
                     
@@ -310,7 +312,8 @@ if (!$company_id) {
                 <h5 class="modal-title" id="paymentModalLabel">Registrar Pago</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="paymentForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <div class="modal-body">
                     <input type="hidden" id="payment_expense_id" name="expense_id">
                     
@@ -385,7 +388,8 @@ if (!$company_id) {
                 <h5 class="modal-title" id="providerModalLabel">Nuevo Proveedor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="providerForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <div class="modal-body">
                     <input type="hidden" id="provider_id_hidden" name="provider_id">
                     
@@ -436,7 +440,8 @@ if (!$company_id) {
                 <h5 class="modal-title" id="orderModalLabel">Nueva Orden de Compra</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="orderForm">
+            <form>
+    <?php echo csrf_input(); ?>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">

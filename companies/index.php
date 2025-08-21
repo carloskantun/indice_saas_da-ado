@@ -472,7 +472,8 @@ if (!isset($lang) || !is_array($lang)) {
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="createCompanyForm" action="controller.php" method="POST">
+                <form>
+    <?php echo csrf_input(); ?>
                     <div class="modal-body">
                         <input type="hidden" name="action" value="create_company">
                         
@@ -515,7 +516,8 @@ if (!isset($lang) || !is_array($lang)) {
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <form id="inviteUserForm">
+                <form>
+    <?php echo csrf_input(); ?>
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="inviteEmail" class="form-label">
