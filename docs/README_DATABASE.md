@@ -26,4 +26,8 @@ Los archivos `.sql` son aplicados automáticamente; los scripts `.php` requieren
    php database/migrations/NOMBRE_DEL_SCRIPT.php
    ```
 
+4. Las migraciones nuevas (a partir de `016_`) reemplazan los antiguos archivos
+   `.sql` que estaban en la raíz del proyecto y se aplican automáticamente con
+   el mismo comando de migración.
+
 El script registrará las migraciones aplicadas en la tabla `migrations` para evitar ejecuciones repetidas.
