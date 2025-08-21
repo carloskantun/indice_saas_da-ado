@@ -1,0 +1,8 @@
+# Ignore temporary files
+*.tmp
+*.log
+*~
+*.swp
+
+# Ignore debug scripts
+debug_*

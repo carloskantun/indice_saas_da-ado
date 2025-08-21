@@ -27,7 +27,7 @@ try {
     
     if (!empty($missing_tables)) {
         echo "❌ ERROR: Faltan tablas críticas: " . implode(', ', $missing_tables) . "\n";
-        echo "💡 Ejecutar primero: php install_database.php y php admin/install_missing_table.php\n";
+        echo "💡 Ejecutar primero: php install_database.php y php tests/admin/install_missing_table.php\n";
         exit(1);
     }
     echo "✅ Todas las tablas principales están presentes\n\n";
