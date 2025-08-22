@@ -2,7 +2,6 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
   pull_request:
 
 jobs:
@@ -14,7 +13,7 @@ jobs:
         with:
           php-version: '8.2'
       - name: Install dependencies
-        run: composer install --no-progress --no-interaction
+        run: composer install
       - name: Run linters
         run: composer lint
       - name: Run unit tests
