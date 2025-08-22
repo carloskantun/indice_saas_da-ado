@@ -22,6 +22,7 @@ loadEnv();
 // Rutas base del sistema
 define('BASE_PATH', __DIR__);
 define('BASE_URL', '/');
+require_once BASE_PATH . '/vendor/autoload.php';
 require_once BASE_PATH . '/includes/csrf.php';
 
 // Configuración de zona horaria

@@ -6,7 +6,7 @@ chdir(dirname(__DIR__));
  */
 
 require_once 'config.php';
-require_once 'components/language_selector.php';
+use Indice\LanguageSelector;
 
 // Verificar autenticación (opcional para esta prueba)
 $user_authenticated = checkAuth();
@@ -47,7 +47,7 @@ $user_authenticated = checkAuth();
                 <p class="text-muted">Testing multilingual functionality</p>
             </div>
             <div class="col-md-4 text-end">
-                <?php echo renderLanguageSelector(); ?>
+                <?php echo LanguageSelector::render(); ?>
             </div>
         </div>
 
@@ -155,15 +155,15 @@ $user_authenticated = checkAuth();
             <div class="row">
                 <div class="col-md-4">
                     <h6>Dropdown with flags:</h6>
-                    <?php echo renderLanguageSelector(null, true, true); ?>
+                    <?php echo LanguageSelector::render(null, true, true); ?>
                 </div>
                 <div class="col-md-4">
                     <h6>Buttons with flags:</h6>
-                    <?php echo renderLanguageSelector(null, true, false); ?>
+                    <?php echo LanguageSelector::render(null, true, false); ?>
                 </div>
                 <div class="col-md-4">
                     <h6>Mini selector:</h6>
-                    <?php echo renderLanguageSelectorMini(); ?>
+                    <?php echo LanguageSelector::renderMini(); ?>
                 </div>
             </div>
         </div>

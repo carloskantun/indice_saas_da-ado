@@ -1,6 +1,6 @@
 <?php
 require_once '../config.php';
-require_once '../components/language_selector.php';
+use Indice\LanguageSelector;
 
 // Si ya está autenticado, redirigir al dashboard
 if (checkAuth()) {
@@ -92,7 +92,7 @@ if ($_POST) {
 <body class="d-flex align-items-center">
     <!-- Language Selector -->
     <div class="lang-selector-auth">
-        <?php echo renderLanguageSelectorMini(); ?>
+        <?php echo LanguageSelector::renderMini(); ?>
     </div>
 
     <div class="container">
