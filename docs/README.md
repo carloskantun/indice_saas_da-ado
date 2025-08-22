@@ -169,11 +169,29 @@ modules/[modulo]/
 ### Módulos Disponibles
 | Módulo | Estado | Descripción |
 |--------|--------|-------------|
-| ✅ **Gastos** | Migrado | Control de ingresos y egresos (desde indice-produccion) |
-| 🔜 **Mantenimiento** | Planeado | Control de servicios técnicos |
-| 🔜 **Servicio Cliente** | Planeado | Gestión de tickets y soporte |
-| 🔜 **Inventario** | Planeado | Control de stock y productos |
-| 🔜 **Ventas** | Planeado | Facturación y gestión comercial |
+| `analytics` | En desarrollo | Análisis y visualización de datos |
+| `chat` | En desarrollo | Mensajería interna entre usuarios |
+| `cleaning` | En desarrollo | Gestión de tareas de limpieza |
+| `crm` | En desarrollo | Relaciones con clientes |
+| `expenses` | Activo | Control de gastos e ingresos |
+| `forms` | En desarrollo | Constructor de formularios |
+| `human-resources` | Activo | Administración de empleados |
+| `inventory` | En desarrollo | Seguimiento de inventarios |
+| `invoicing` | En desarrollo | Emisión de facturas |
+| `kpis` | En desarrollo | Tablero de indicadores clave |
+| `laundry` | En desarrollo | Control de lavandería |
+| `maintenance` | En desarrollo | Programación de mantenimiento |
+| `minutes` | En desarrollo | Actas y minutas |
+| `petty-cash` | En desarrollo | Manejo de caja chica |
+| `pos` | En desarrollo | Punto de venta |
+| `processes-tasks` | En desarrollo | Flujos de procesos y tareas |
+| `properties` | En desarrollo | Gestión de propiedades |
+| `sales-agent` | En desarrollo | Seguimiento de agentes de venta |
+| `settings` | En desarrollo | Configuración del negocio |
+| `template-module` | Experimental | Plantilla base para nuevos módulos |
+| `training` | En desarrollo | Gestión de capacitaciones |
+| `transportation` | En desarrollo | Control de transporte |
+| `vehicles` | En desarrollo | Registro de vehículos |
 
 ### Características de Módulos
 - 📊 **KPIs dinámicos** (Chart.js)
@@ -814,15 +832,7 @@ $_SESSION['current_role'] // Rol actual del usuario
             └── 📦 Módulos Funcionales
 ```
 
-### 2. Módulos Disponibles
-- ✅ **Gastos** - Gestión de ingresos y egresos (activo)
-- 🔜 **Mantenimiento** - Control de servicios técnicos
-- 🔜 **Servicio al Cliente** - Gestión de tickets y soporte
-- 🔜 **Inventario** - Control de stock y productos
-- 🔜 **Ventas** - Facturación y gestión comercial
-- 🔜 **Empleados** - Gestión de personal y nómina
-
-### 3. API REST
+### API REST
 Cada módulo incluye un controlador con endpoints REST:
 - `POST` - Crear registro
 - `GET` - Listar/obtener registros
