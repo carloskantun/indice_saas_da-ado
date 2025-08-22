@@ -4,14 +4,14 @@
  * Muestra navegación optimizada según el contexto del usuario
  */
 
-require_once __DIR__ . '/../includes/smart_navigation.php';
+use Indice\SmartNavigation;
 
 function renderSmartBreadcrumbs($currentPage = '', $customBreadcrumbs = []) {
     if (!checkAuth()) {
         return '';
     }
     
-    $smartNav = getSmartNavigation();
+    $smartNav = new SmartNavigation();
     $breadcrumbs = $smartNav->getOptimalBreadcrumbs();
     
     // Agregar breadcrumbs personalizados
@@ -71,7 +71,7 @@ function renderQuickNavigation() {
         return '';
     }
     
-    $smartNav = getSmartNavigation();
+    $smartNav = new SmartNavigation();
     
     // Solo mostrar para usuarios con acceso directo (empleados básicos)
     if (!$smartNav->hasDirectAccess()) {
@@ -132,7 +132,7 @@ function shouldShowFullBreadcrumbs() {
     }
     
     // Usuarios básicos solo si están navegando múltiples niveles
-    $smartNav = getSmartNavigation();
+    $smartNav = new SmartNavigation();
     $breadcrumbs = $smartNav->getOptimalBreadcrumbs();
     
     return count($breadcrumbs) > 1;

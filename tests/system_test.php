@@ -11,6 +11,7 @@ ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
 require_once 'config.php';
+use Indice\LanguageSelector;
 
 echo "<!DOCTYPE html>\n";
 echo "<html lang='" . getCurrentLanguage() . "'>\n";
@@ -42,22 +43,14 @@ echo "                    <p><strong>Notifications text:</strong> " . ($lang['no
 // Test 2: Language Selector
 echo "                    <h5 class='text-primary mt-4'>2. Selector de Idioma</h5>\n";
 echo "                    <div class='mb-3'>\n";
-if (function_exists('renderLanguageSelector')) {
     echo "                        <p>Versión Normal:</p>\n";
-    echo "                        " . renderLanguageSelector() . "\n";
-    if (function_exists('renderLanguageSelectorNavbar')) {
-        echo "                        <p class='mt-3'>Versión Navbar:</p>\n";
-        echo "                        <div class='bg-primary p-2 rounded'>\n";
-        echo "                            " . renderLanguageSelectorNavbar() . "\n";
-        echo "                        </div>\n";
-    }
-    if (function_exists('renderLanguageSelectorMini')) {
-        echo "                        <p class='mt-3'>Versión Mini:</p>\n";
-        echo "                        " . renderLanguageSelectorMini() . "\n";
-    }
-} else {
-    echo "                        <div class='alert alert-warning'>Función renderLanguageSelector no está disponible</div>\n";
-}
+    echo "                        " . LanguageSelector::render() . "\n";
+    echo "                        <p class='mt-3'>Versión Navbar:</p>\n";
+    echo "                        <div class='bg-primary p-2 rounded'>\n";
+    echo "                            " . LanguageSelector::renderNavbar() . "\n";
+    echo "                        </div>\n";
+    echo "                        <p class='mt-3'>Versión Mini:</p>\n";
+    echo "                        " . LanguageSelector::renderMini() . "\n";
 echo "                    </div>\n";
 
 // Test 3: Session Info
@@ -77,7 +70,7 @@ try {
 // Test 5: Components
 echo "                    <h5 class='text-primary mt-4'>5. Componentes</h5>\n";
 $components = [
-    'components/language_selector.php',
+    'src/LanguageSelector.php',
     'components/navbar_notifications_safe.php'
 ];
 

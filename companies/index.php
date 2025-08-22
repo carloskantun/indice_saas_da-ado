@@ -4,7 +4,7 @@
  */
 
 require_once '../config.php';
-require_once '../components/language_selector.php';
+use Indice\LanguageSelector;
 
 // Configuración de errores
 error_reporting(E_ALL);
@@ -195,7 +195,7 @@ if (!isset($lang) || !is_array($lang)) {
                     
                     <!-- Selector de Idioma -->
                     <li class="nav-item me-2">
-                        <?php echo renderLanguageSelectorNavbar(); ?>
+                        <?php echo LanguageSelector::renderNavbar(); ?>
                     </li>
                     
                     <li class="nav-item dropdown">

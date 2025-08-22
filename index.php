@@ -6,11 +6,11 @@
  */
 
 require_once 'config.php';
-require_once 'components/language_selector.php';
+use Indice\LanguageSelector;
+use Indice\SmartNavigation;
 
 // Si el usuario está autenticado, usar navegación inteligente
 if (checkAuth()) {
-    require_once 'includes/smart_navigation.php';
     $smartNav = new SmartNavigation();
     $optimalRoute = $smartNav->getOptimalRoute();
     redirect($optimalRoute);
@@ -74,7 +74,7 @@ if (checkAuth()) {
 <body>
     <!-- Language Selector -->
     <div class="lang-selector-top">
-        <?php echo renderLanguageSelectorMini(); ?>
+        <?php echo LanguageSelector::renderMini(); ?>
     </div>
 
     <div class="container">
