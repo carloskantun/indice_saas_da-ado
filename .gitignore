@@ -26,3 +26,4 @@ node_modules/
 *backup*
 *old*
 *.zip
+.phpunit.result.cache
