@@ -52,3 +52,19 @@ composer test
 # o
 vendor/bin/phpunit tests/InstallSmokeTest.php
 ```
+
+## Instalación con Docker
+Si prefieres ejecutar el proyecto en contenedores, utiliza Docker Compose:
+
+```bash
+docker-compose up -d
+```
+
+Este comando levanta los servicios `app` (PHP + Apache) y `mysql`.
+
+Luego, ejecuta el instalador dentro del contenedor `app`:
+
+```bash
+docker-compose exec app php scripts/install_all.php
+```
+
