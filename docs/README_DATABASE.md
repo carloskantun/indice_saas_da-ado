@@ -31,3 +31,11 @@ Los archivos `.sql` son aplicados automáticamente; los scripts `.php` requieren
    el mismo comando de migración.
 
 El script registrará las migraciones aplicadas en la tabla `migrations` para evitar ejecuciones repetidas.
+
+## Seeds de datos iniciales
+
+Para insertar el usuario **root** y activar los módulos esenciales, ejecuta:
+
+```bash
+php database/seeds/seed_initial_data.php
+```
