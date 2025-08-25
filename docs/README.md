@@ -47,20 +47,11 @@ Sistema modular y escalable en PHP + MySQL que permite a múltiples empresas ges
    # Editar config.php con credenciales
    ```
 
-2. **Ejecutar Instaladores**:
+2. **Instalación automática**:
    ```bash
-   # Instalar estructura base
-   php install_database.php
-   
-   # Crear usuario root y planes SaaS
-   php panel_root/create_plans_table.php
-   
-   # Instalar sistema de invitaciones
-   php admin/install_missing_table.php
-   
-   # Instalar plantillas de permisos
-   # Ir a: admin/complete_role_installation.php
+   php scripts/install_all.php
    ```
+   Este comando ejecuta en orden todos los instaladores y migraciones necesarios.
 
 3. **Configurar correo**:
    Revisar [email_config.md](email_config.md) para personalizar las constantes de envío.
