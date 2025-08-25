@@ -4,6 +4,7 @@ Esta guía unifica la documentación previamente distribuida en los archivos `RE
 
 ## Índice de guías
 
+- [Guía de instalación](INSTALL.md)
 - [Auditoría del sistema](AUDITORIA_SISTEMA.md)
 - [Estándar de nombres de base de datos](DATABASE_NAMING_STANDARD.md)
 - [Guía de migraciones de base de datos](README_DATABASE.md)
