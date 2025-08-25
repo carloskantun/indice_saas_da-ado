@@ -3,6 +3,7 @@
 ## 📋 Descripción
 
 Sistema completo de administración para la plataforma SaaS, con gestión de usuarios, roles y permisos granulares por empresa.
+Ver [Roles, permisos e invitaciones](../docs/roles_permisos.md) para el flujo completo de creación e invitación de usuarios.
 
 ## ✨ Características
 

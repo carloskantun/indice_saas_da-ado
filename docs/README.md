@@ -8,7 +8,7 @@ Esta guía unifica la documentación previamente distribuida en los archivos `RE
 - [Estándar de nombres de base de datos](DATABASE_NAMING_STANDARD.md)
 - [Guía de migraciones de base de datos](README_DATABASE.md)
 - [Configuración de email](email_config.md)
-- [Roles y permisos](roles_permisos.md)
+- [Roles, permisos e invitaciones](roles_permisos.md)
 - [Sistema de gestión de usuarios admin](ADMIN_SYSTEM_COMPLETED.md)
 - [Flujo de negocio SaaS](BUSINESS_SYSTEM_COMPLETE.md)
 - [Corrección del sistema de invitaciones](CORRECTION_SUMMARY.md)
