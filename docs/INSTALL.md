@@ -43,3 +43,12 @@ php -m | grep -i pdo
 ```
 
 Debe mostrarse la versión de PHP y las extensiones `PDO` y `pdo_mysql` habilitadas.
+
+## Prueba de instalación
+Ejecuta el test de humo para verificar la conexión a la base de datos y los datos iniciales:
+
+```bash
+composer test
+# o
+vendor/bin/phpunit tests/InstallSmokeTest.php
+```
