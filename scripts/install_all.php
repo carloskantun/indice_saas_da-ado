@@ -47,6 +47,7 @@ if ($status !== 0) {
 
 $extraScripts = [
     $root . '/panel_root/create_plans_table.php',
+    $root . '/database/seeds/seed_initial_data.php',
 ];
 
 foreach ($extraScripts as $script) {
