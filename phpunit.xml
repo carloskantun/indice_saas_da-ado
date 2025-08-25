@@ -10,5 +10,8 @@
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
         </testsuite>
+        <testsuite name="Install">
+            <file>tests/InstallSmokeTest.php</file>
+        </testsuite>
     </testsuites>
 </phpunit>
